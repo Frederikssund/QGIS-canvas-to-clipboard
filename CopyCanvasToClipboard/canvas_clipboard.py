@@ -167,7 +167,7 @@ class CopyCanvasToClipboard:
         icon_path = ':/plugins/CopyCanvasToClipboard/icon.png'
         self.add_action(
             icon_path,
-            text=self.tr(u'Map canvas to clipboard'),
+            text=self.tr(u'Copy map-canvas to clipboard'),
             shortcut="Alt+C",
             callback=self.run,
             parent=self.iface.mainWindow())
@@ -177,7 +177,7 @@ class CopyCanvasToClipboard:
         """Removes the plugin menu item and icon from QGIS GUI."""
         for action in self.actions:
             self.iface.removePluginMenu(
-                self.tr(u'&Copy Canvas to Clipboard'),
+                self.tr(u'&Copy map-canvas to Clipboard'),
                 action)
             self.iface.removeToolBarIcon(action)
         # remove the toolbar
