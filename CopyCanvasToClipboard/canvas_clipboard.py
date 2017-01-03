@@ -22,10 +22,9 @@
 """
 from PyQt4.QtCore import QSettings, QTranslator, qVersion, QCoreApplication
 from PyQt4.QtGui import *
+from qgis.gui import QgsMessageBar
 # Initialize Qt resources from file resources.py
 import resources
-# Import the code for the dialog
-from canvas_clipboard_dialog import CopyCanvasToClipboardDialog
 import os.path
 
 
@@ -92,6 +91,7 @@ class CopyCanvasToClipboard:
         add_to_toolbar=True,
         status_tip=None,
         whats_this=None,
+        shortcut=None,
         parent=None):
         """Add a toolbar icon to the toolbar.
 
@@ -127,6 +127,9 @@ class CopyCanvasToClipboard:
         :param whats_this: Optional text to show in the status bar when the
             mouse pointer hovers over the action.
 
+        :param shortcut: Optional text that define the shortcut for the action, ex. "Shift-P"
+        :type shortcut: str
+
         :returns: The action that was created. Note that the action is also
             added to self.actions list.
         :rtype: QAction
@@ -143,14 +146,17 @@ class CopyCanvasToClipboard:
         if whats_this is not None:
             action.setWhatsThis(whats_this)
 
+        if shortcut is not None:
+            action.setShortcut(QKeySequence(shortcut))
+
         if add_to_toolbar:
             self.toolbar.addAction(action)
-
+					
         if add_to_menu:
             self.iface.addPluginToMenu(
                 self.menu,
                 action)
-
+								
         self.actions.append(action)
 
         return action
@@ -162,6 +168,7 @@ class CopyCanvasToClipboard:
         self.add_action(
             icon_path,
             text=self.tr(u'Map canvas to clipboard'),
+            shortcut="Alt+C",
             callback=self.run,
             parent=self.iface.mainWindow())
 
@@ -180,7 +187,7 @@ class CopyCanvasToClipboard:
     def run(self):
         """Run method that performs all the real work"""
         QApplication.clipboard().setImage(QImage(QPixmap.grabWidget(self.iface.mapCanvas())))
-
+        self.iface.messageBar().pushMessage(self.tr(u'Map canvas to clipboard'), self.tr(u'Map copied to clipboard'), level=QgsMessageBar.INFO, duration=3)
 
 
 				
