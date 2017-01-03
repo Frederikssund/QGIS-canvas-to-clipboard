@@ -14,7 +14,7 @@ version=0.1
 author=Bo Victor Thomsen - Municipality of Frederikssund
 email=bvtho@frederikssund.dk
 
-about=la la la
+about=This plugin creates a button and a shortcut to make a copy of the map canvas and place it in the clipboard
 
 tracker=https://github.com/Frederikssund/QGIS-canvas-to-clipboard
 repository=https://github.com/Frederikssund/QGIS-canvas-to-clipboard
