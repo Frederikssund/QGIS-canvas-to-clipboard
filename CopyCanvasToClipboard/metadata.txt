@@ -16,7 +16,7 @@ email=bvtho@frederikssund.dk
 
 about=This plugin creates a button and a shortcut to make a copy of the map canvas and place it in the clipboard
 
-tracker=https://github.com/Frederikssund/QGIS-canvas-to-clipboard
+tracker=https://github.com/Frederikssund/QGIS-canvas-to-clipboard/issues
 repository=https://github.com/Frederikssund/QGIS-canvas-to-clipboard
 # End of mandatory metadata
 
