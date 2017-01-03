@@ -60,7 +60,7 @@ class CopyCanvasToClipboard:
 
         # Declare instance attributes
         self.actions = []
-        self.menu = self.tr(u'&Copy Canvas to Clipboard')
+        self.menu = self.tr(u'&Copy map-canvas to clipboard')
         # TODO: We are going to let the user set this up in a future iteration
         self.toolbar = self.iface.addToolBar(u'CopyCanvasToClipboard')
         self.toolbar.setObjectName(u'CopyCanvasToClipboard')
@@ -167,7 +167,7 @@ class CopyCanvasToClipboard:
         icon_path = ':/plugins/CopyCanvasToClipboard/icon.png'
         self.add_action(
             icon_path,
-            text=self.tr(u'Copy map-canvas to clipboard'),
+            text=self.menu,
             shortcut="Alt+C",
             callback=self.run,
             parent=self.iface.mainWindow())
@@ -177,7 +177,7 @@ class CopyCanvasToClipboard:
         """Removes the plugin menu item and icon from QGIS GUI."""
         for action in self.actions:
             self.iface.removePluginMenu(
-                self.tr(u'&Copy map-canvas to Clipboard'),
+                self.menu,
                 action)
             self.iface.removeToolBarIcon(action)
         # remove the toolbar
@@ -187,7 +187,7 @@ class CopyCanvasToClipboard:
     def run(self):
         """Run method that performs all the real work"""
         QApplication.clipboard().setImage(QImage(QPixmap.grabWidget(self.iface.mapCanvas())))
-        self.iface.messageBar().pushMessage(self.tr(u'Map canvas to clipboard'), self.tr(u'Map copied to clipboard'), level=QgsMessageBar.INFO, duration=3)
+        self.iface.messageBar().pushMessage(self.menu, self.tr(u'Map copied'), level=QgsMessageBar.INFO, duration=3)
 
 
 				
