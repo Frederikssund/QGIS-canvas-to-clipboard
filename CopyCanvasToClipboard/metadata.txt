@@ -14,7 +14,9 @@ version=0.1
 author=Bo Victor Thomsen - Municipality of Frederikssund
 email=bvtho@frederikssund.dk
 
-about=This plugin creates a button and a shortcut to make a copy of the map canvas and place it in the clipboard
+about=It works by cliking on the associated button or by using the keyboard shortcut: "Alt+C"
+
+After using the function it's possible to insert the bitmap copy of the map to ex. MS-Word by activating MS-Word and use the keyboard shortcut "Ctrl+V"
 
 tracker=https://github.com/Frederikssund/QGIS-canvas-to-clipboard/issues
 repository=https://github.com/Frederikssund/QGIS-canvas-to-clipboard
