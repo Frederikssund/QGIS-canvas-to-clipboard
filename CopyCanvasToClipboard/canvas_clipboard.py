@@ -60,7 +60,7 @@ class CopyCanvasToClipboard:
 
         # Declare instance attributes
         self.actions = []
-        self.menu = self.tr(u'&Copy map-canvas to clipboard')
+        self.menu = self.tr(u'Copy map-canvas to clipboard')
         # TODO: We are going to let the user set this up in a future iteration
         self.toolbar = self.iface.addToolBar(u'CopyCanvasToClipboard')
         self.toolbar.setObjectName(u'CopyCanvasToClipboard')
