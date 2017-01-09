@@ -61,10 +61,10 @@ class CopyCanvasToClipboard:
         # Declare instance attributes
         self.actions = []
         self.menu = self.tr(u'Copy map-canvas to clipboard')
-        # TODO: We are going to let the user set this up in a future iteration
-        self.toolbar = self.iface.addToolBar(u'CopyCanvasToClipboard')
-        self.toolbar.setObjectName(u'CopyCanvasToClipboard')
-
+        # No separate toolbar to the action, it will be placed in the plugin toolbar
+        #self.toolbar = self.iface.addToolBar(u'CopyCanvasToClipboard')
+        #self.toolbar.setObjectName(u'CopyCanvasToClipboard')
+        
     # noinspection PyMethodMayBeStatic
     def tr(self, message):
         """Get the translation for a string using Qt translation API.
@@ -150,8 +150,10 @@ class CopyCanvasToClipboard:
             action.setShortcut(QKeySequence(shortcut))
 
         if add_to_toolbar:
-            self.toolbar.addAction(action)
-					
+            # No separate toolbar to the action, it will be placed in the plugin toolbar
+            #self.toolbar.addAction(action)
+            self.iface.addToolBarIcon(action)					
+
         if add_to_menu:
             self.iface.addPluginToMenu(
                 self.menu,
@@ -168,7 +170,7 @@ class CopyCanvasToClipboard:
         self.add_action(
             icon_path,
             text=self.menu,
-            shortcut="Alt+C",
+            shortcut="Ctrl+9",
             callback=self.run,
             parent=self.iface.mainWindow())
 
@@ -180,8 +182,8 @@ class CopyCanvasToClipboard:
                 self.menu,
                 action)
             self.iface.removeToolBarIcon(action)
-        # remove the toolbar
-        del self.toolbar
+        # No separate toolbar to the action, it will be placed in the plugin toolbar
+        # del self.toolbar
 
 
     def run(self):
