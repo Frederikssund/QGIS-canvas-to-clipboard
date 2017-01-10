@@ -7,4 +7,5 @@ It works by cliking on the associated button looking like this:  ![](./CopyCanva
 
 After invoking the function You can directly copy the map to ex. MS-Word by activating MS-Word and use the keyboard shortcut "Ctrl+V"
 
-Icon made by Freepik from www.flaticon.com
+Icon made by Freepik from www.flaticon.com<br><br>
+[![Donate to QGIS](https://img.shields.io/badge/donate%20to-QGIS-green.svg)](http://qgis.org/en/site/getinvolved/donations.html)
